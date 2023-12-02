@@ -337,4 +337,26 @@ func ordenarStrings(slice []string) (string, error) {
 	return resultado, nil
 }
 
-18.
+18.Escreva uma função que receba um slice de inteiros e uma função como parâmetros. A função deve aplicar a função recebida em cada
+elemento do slice e retornar a soma de todos os resultados. Caso o slice esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+)
+func aplicarFuncaoESomar(slice []int, funcao func(int) int) (int, error) {
+	if len(slice) == 0 {
+		return 0, errors.New("O slice está vazio")
+	}
+	soma := 0
+	for _, valor := range slice {
+		soma += funcao(valor)
+	}
+	return soma, nil
+}
+func dobrar(valor int) int {
+	return valor * 2
+}
+
+19.
