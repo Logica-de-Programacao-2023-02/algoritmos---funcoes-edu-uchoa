@@ -179,4 +179,29 @@ func ordenarCrescente(slice []int) ([]int, error) {
 	return copia, nil
 }
 
-11.
+11.Crie uma função que receba um número inteiro como parâmetro e retorne verdadeiro se ele for um número primo e falso caso contrário.
+Caso o número seja negativo, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+	"math"
+)
+func isPrimo(numero int) (bool, error) {
+	if numero < 0 {
+		return false, errors.New("O número não pode ser negativo")
+	}
+	if numero <= 1 {
+		return false, nil
+	}
+	limite := int(math.Sqrt(float64(numero))) + 1
+	for i := 2; i < limite; i++ {
+		if numero%i == 0 {
+			return false, nil
+		}
+	}
+	return true, nil
+}
+
+12.
