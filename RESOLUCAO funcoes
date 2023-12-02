@@ -143,5 +143,21 @@ func numerosPares(slice []int) ([]int, error) {
 	return pares, nil
 }
 
-9.
+9.Crie uma função que receba uma string como parâmetro e retorne um novo slice com todas as palavras contidas na string.
+Considere que as palavras são separadas por espaços em branco. Caso a string seja vazia, retorne um erro.
 
+package main
+import (
+	"errors"
+	"fmt"
+	"strings"
+)
+func extrairPalavras(texto string) ([]string, error) {
+	if texto == "" {
+		return nil, errors.New("A string está vazia")
+	}
+	palavras := strings.Fields(texto)
+	return palavras, nil
+}
+
+10.
