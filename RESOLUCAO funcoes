@@ -359,4 +359,33 @@ func dobrar(valor int) int {
 	return valor * 2
 }
 
-19.
+19.Crie uma função que receba um número inteiro como parâmetro e retorne um novo slice contendo
+todos os números primos menores ou iguais a ele. Caso o número seja negativo, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+)
+func numerosPrimos(numero int) ([]int, error) {
+	if numero < 0 {
+		return nil, errors.New("O número não pode ser negativo")
+	}
+	var primos []int
+	for i := 2; i <= numero; i++ {
+		primo := true
+		for j := 2; j*j <= i; j++ {
+			if i%j == 0 {
+				primo = false
+				break
+			}
+		}
+		if primo {
+			primos = append(primos, i)
+		}
+	}
+	return primos, nil
+}
+
+20.
+
