@@ -83,5 +83,22 @@ func encontrarPosicao(slice []int, valor int) int {
 	return -1
 }
 
-6.
+6.Escreva uma função que receba um slice de strings como parâmetro e retorne uma string com todas as strings
+concatenadas e separadas por vírgulas. Caso o slice esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+	"strings"
+)
+func concatenarComVirgulas(slice []string) (string, error) {
+	if len(slice) == 0 {
+		return "", errors.New("O slice está vazio")
+	}
+	resultado := strings.Join(slice, ",")
+	return resultado, nil
+}
+
+7.
 
