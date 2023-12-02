@@ -45,4 +45,28 @@ func concatenarStrings(slice []string) string {
 	return resultado
 }
 
-4.
+4.Crie uma função que receba um slice de inteiros e retorne o segundo maior valor.
+
+package main
+import "fmt"
+func segundoMaiorValor(slice []int) (int, error) {
+	if len(slice) < 2 {
+		return 0, fmt.Errorf("O slice deve ter pelo menos dois elementos")
+	}
+	maior := slice[0]
+	segundoMaior := slice[1]
+	if segundoMaior > maior {
+		maior, segundoMaior = segundoMaior, maior
+	}
+	for _, valor := range slice[2:] {
+		if valor > maior {
+			segundoMaior = maior
+			maior = valor
+		} else if valor > segundoMaior && valor != maior {
+			segundoMaior = valor
+		}
+	}
+	return segundoMaior, nil
+}
+
+5.
