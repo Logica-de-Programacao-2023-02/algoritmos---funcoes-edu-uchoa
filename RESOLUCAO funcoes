@@ -160,4 +160,23 @@ func extrairPalavras(texto string) ([]string, error) {
 	return palavras, nil
 }
 
-10.
+10.Escreva uma função que receba um slice de inteiros como parâmetro e retorne um novo slice com os valores
+ordenados de forma crescente.Caso o slice esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+	"sort"
+)
+func ordenarCrescente(slice []int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, errors.New("O slice está vazio")
+	}
+	copia := make([]int, len(slice))
+	copy(copia, slice)
+	sort.Ints(copia)
+	return copia, nil
+}
+
+11.
