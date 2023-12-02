@@ -247,4 +247,33 @@ func somaDigitos(numero int) (int, error) {
 	return soma, nil
 }
 
-14.
+14.Escreva uma função que receba dois slices de inteiros como parâmetros e retorne um novo slice contendo apenas os números presentes nos dois slices.
+Caso um dos slices esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+)
+func intersecaoEntreSlices(slice1, slice2 []int) ([]int, error) {
+	if len(slice1) == 0 || len(slice2) == 0 {
+		return nil, errors.New("Ambos os slices devem estar preenchidos")
+	}
+	mapSlice1 := make(map[int]bool)
+	mapSlice2 := make(map[int]bool)
+	for _, num := range slice1 {
+		mapSlice1[num] = true
+	}
+	for _, num := range slice2 {
+		mapSlice2[num] = true
+	}
+	var intersecao []int
+	for num := range mapSlice1 {
+		if mapSlice2[num] {
+			intersecao = append(intersecao, num)
+		}
+	}
+	return intersecao, nil
+}
+
+15.
