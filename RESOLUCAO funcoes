@@ -14,4 +14,23 @@ func calcularMedia(slice []int) float64 {
     return media
 }
 
-2.
+2.Crie uma função que receba uma string e retorne a quantidade de vogais presentes.
+
+package main
+import (
+	"fmt"
+	"strings"
+)
+func contarVogais(texto string) int {
+	qtdVogais := 0
+	texto = strings.ToLower(texto)
+	for _, char := range texto {
+		switch char {
+		case 'a', 'e', 'i', 'o', 'u':
+			qtdVogais++
+		}
+	}
+	return qtdVogais
+}
+
+3.
