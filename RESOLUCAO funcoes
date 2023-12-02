@@ -316,4 +316,25 @@ func substituir(texto string) (string, error) {
 	return texto, nil
 }
 
-17.
+17.Crie uma função que receba um slice de strings como parâmetro e retorne uma nova string com as strings em ordem alfabética. 
+Caso o slice esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+	"sort"
+	"strings"
+)
+func ordenarStrings(slice []string) (string, error) {
+	if len(slice) == 0 {
+		return "", errors.New("O slice está vazio")
+	}
+	copia := make([]string, len(slice))
+	copy(copia, slice)
+	sort.Strings(copia)
+	resultado := strings.Join(copia, ", ")
+	return resultado, nil
+}
+
+18.
