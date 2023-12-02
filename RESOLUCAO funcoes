@@ -204,4 +204,26 @@ func isPrimo(numero int) (bool, error) {
 	return true, nil
 }
 
-12.
+12.Escreva uma função que receba um slice de strings como parâmetro e retorne uma string contendo apenas as strings que começam com uma letra maiúscula.
+Caso o slice esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+	"strings"
+)
+func stringsLetraMaiuscula(slice []string) (string, error) {
+	if len(slice) == 0 {
+		return "", errors.New("O slice está vazio")
+	}
+	var result []string
+	for _, str := range slice {
+		if strings.Title(str) == str {
+			result = append(result, str)
+		}
+	}
+	return fmt.Sprintf("[%s]", strings.Join(result, ", ")), nil
+}
+
+13.
