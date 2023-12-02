@@ -276,4 +276,24 @@ func intersecaoEntreSlices(slice1, slice2 []int) ([]int, error) {
 	return intersecao, nil
 }
 
-15.
+15.Crie uma função que receba um número inteiro e um slice de inteiros como parâmetros
+e retorne verdadeiro se o número estiver presente no slice e falso caso contrário. Caso o slice esteja vazio, retorne um erro.
+
+package main
+import (
+	"errors"
+	"fmt"
+)
+func numeroNoSlice(numero int, slice []int) (bool, error) {
+	if len(slice) == 0 {
+		return false, errors.New("O slice está vazio")
+	}
+	for _, valor := range slice {
+		if valor == numero {
+			return true, nil
+		}
+	}
+	return false, nil
+}
+
+16.
